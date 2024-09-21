@@ -5,6 +5,7 @@ import { Pool } from 'pg';
 
 import { DB_CONNECTION, DB_URL } from './db-connection';
 import * as usersSchema from 'src/users/users.schema';
+import * as postsSchema from 'src/posts/posts.schema';
 
 @Module({
   providers: [
@@ -17,6 +18,7 @@ import * as usersSchema from 'src/users/users.schema';
         return drizzle(pool, {
           schema: {
             ...usersSchema,
+            ...postsSchema,
           },
         });
       },
